@@ -28,35 +28,40 @@ You don't need any API keys for this to work:
   your real Shopify customer list (tagged `newsletter,saluting-lou-launch`)
   even though this page can be hosted anywhere.
 
-### ⚠️ Before you launch: fix placeholder product URLs
+### The current lineup (4 designs, 5 listings)
 
-I only had confirmed URLs for 3 products from your screenshots. The rest
-point to `ndshirt.com/collections/all` as a safe fallback and are marked
-`// TODO: verify` in `script.js` — open that file and swap in the exact
-product URL from Shopify admin for each:
+`PRODUCTS` in `script.js` holds the full catalog shown on the site. Right
+now that's:
 
-| Product | Status |
-|---|---|
-| Saluting Lou (Navy Blue) | ✅ confirmed |
-| Under the Same Sky (Navy Blue) | ✅ confirmed |
-| Do Your Job (Navy Blue) | ✅ confirmed |
-| Saluting Lou (White) | ⚠️ guessed slug — verify |
-| Leave No Doubt (all 6 variants) | ⚠️ placeholder — needs real URLs |
+| Product | Price | URL status |
+|---|---|---|
+| Saluting Lou (Navy Blue) | $26.00 | ✅ confirmed |
+| Saluting Lou (White) | $26.00 | ⚠️ guessed slug — verify |
+| Under the Same Sky (Navy Blue) | $33.98 | ✅ confirmed |
+| Do Your Job (Navy Blue) | $33.98 | ✅ confirmed |
 
-Easiest way to grab them: open each product in Shopify admin → **View** →
-copy the URL, then paste into the matching `url:` field in `PRODUCTS` at
-the top of `script.js`.
+One thing to double check: your catalog page showed Saluting Lou (Navy)
+at $15.50, but the product page itself showed $26.00 — I went with $26.00
+since that's the more direct source, but worth confirming which is
+correct in Shopify admin before launch.
+
+When a new design goes live (or an existing one gets a new colorway),
+add one object to the `PRODUCTS` array at the top of `script.js` — nothing
+else in the file needs to change, the grid re-renders automatically from
+that list.
 
 ### Product photos
 
-Product cards currently use generated placeholder "tee" graphics (colored
-silhouettes with the design name) so the page works immediately with zero
-image assets. To use real product photography instead:
+Each design currently gets a small hand-drawn SVG placeholder that echoes
+its real print (the "LOU" hand-sign mark, the starfield + figure for Under
+the Same Sky, the stacked type + silhouette for Do Your Job) so the page
+works immediately with zero image assets. To swap in real product
+photography instead:
 
 1. Export/download the product images from Shopify admin.
 2. Drop them in an `images/` folder here.
 3. In `script.js`, add an `image: 'images/saluting-lou-navy.png'` field to
-   a product and swap the `teeSVG(...)` call in `renderProducts()` for an
+   a product and swap the `teeSVG(p)` call in `renderProducts()` for an
    `<img>` tag when `p.image` is set.
 
 ## Where to host it

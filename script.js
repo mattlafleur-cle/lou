@@ -8,146 +8,115 @@
 // slug will 404. Confirmed-working URLs are marked accordingly.
 // =========================================================
 
+// The full current lineup — 4 designs, 5 listings (Saluting Lou comes in
+// two colorways). Add a new row here when a new design goes live; nothing
+// else in this file needs to change.
 const PRODUCTS = [
   {
     name: 'Saluting Lou',
     variant: 'Navy Blue',
-    price: '15.50',
+    price: '26.00',
     tag: 'New · Launching Today',
-    category: 'new',
     url: 'https://ndshirt.com/products/saluting-lou-navy-blue', // confirmed
-    fill: '#0d1b3f',
-    text: '#c9a961'
+    design: 'saluting-lou',
+    shirt: '#0d1b3f',
+    ink: '#f7f4ec'
   },
   {
     name: 'Saluting Lou',
     variant: 'White',
     price: '26.00',
     tag: 'New',
-    category: 'new',
     url: 'https://ndshirt.com/products/saluting-lou-white', // TODO: verify exact slug
-    fill: '#f7f4ec',
-    text: '#0d1b3f'
+    design: 'saluting-lou',
+    shirt: '#f7f4ec',
+    ink: '#0d1b3f'
   },
   {
     name: 'Under the Same Sky',
     variant: 'Navy Blue',
     price: '33.98',
     tag: null,
-    category: 'tribute',
     url: 'https://ndshirt.com/products/lou-same-sky', // confirmed
-    fill: '#0d1b3f',
-    text: '#c9a961'
+    design: 'under-the-sky',
+    shirt: '#0d1b3f',
+    ink: '#c9a961'
   },
   {
     name: 'Do Your Job',
     variant: 'Navy Blue',
     price: '33.98',
     tag: null,
-    category: 'tribute',
     url: 'https://ndshirt.com/products/lou-holtz-do-your-job', // confirmed
-    fill: '#0d1b3f',
-    text: '#c9a961'
-  },
-  {
-    name: 'Leave No Doubt',
-    variant: 'Navy Blue',
-    price: '33.98',
-    tag: null,
-    category: 'tribute',
-    url: 'https://ndshirt.com/collections/all', // TODO: replace with exact product URL
-    fill: '#0d1b3f',
-    text: '#c9a961'
-  },
-  {
-    name: 'Leave No Doubt',
-    variant: 'Navy Blue Shield',
-    price: '33.98',
-    tag: null,
-    category: 'tribute',
-    url: 'https://ndshirt.com/collections/all', // TODO: replace with exact product URL
-    fill: '#0d1b3f',
-    text: '#c9a961'
-  },
-  {
-    name: 'Leave No Doubt',
-    variant: 'Navy Blue Chest',
-    price: '33.98',
-    tag: null,
-    category: 'tribute',
-    url: 'https://ndshirt.com/collections/all', // TODO: replace with exact product URL
-    fill: '#0d1b3f',
-    text: '#c9a961'
-  },
-  {
-    name: 'Leave No Doubt',
-    variant: 'Heather Gray',
-    price: '33.98',
-    tag: null,
-    category: 'tribute',
-    url: 'https://ndshirt.com/collections/all', // TODO: replace with exact product URL
-    fill: '#b7b7b7',
-    text: '#0d1b3f'
-  },
-  {
-    name: 'Leave No Doubt',
-    variant: 'White',
-    price: '33.98',
-    tag: null,
-    category: 'tribute',
-    url: 'https://ndshirt.com/collections/all', // TODO: replace with exact product URL
-    fill: '#f7f4ec',
-    text: '#0d1b3f'
-  },
-  {
-    name: 'Leave No Doubt',
-    variant: 'White-Gray',
-    price: '33.98',
-    tag: null,
-    category: 'tribute',
-    url: 'https://ndshirt.com/collections/all', // TODO: replace with exact product URL
-    fill: '#eae8e2',
-    text: '#0d1b3f'
+    design: 'do-your-job',
+    shirt: '#0d1b3f',
+    ink: '#c9a961'
   }
 ];
 
-// ---------- render a simple tee silhouette as inline SVG ----------
-function teeSVG(fill, textColor, label) {
+// ---------- product artwork ----------
+// Each design gets its own hand-drawn placeholder that echoes the real
+// print (see README "Product photos") rather than a generic name-on-shirt
+// card. Swap these for real product photography when it's ready.
+const TEE_PATH = 'M70 10 L20 40 L35 75 L60 62 V240 A6 6 0 0 0 66 246 H154 A6 6 0 0 0 160 240 V62 L185 75 L200 40 L150 10 C150 28 132 40 110 40 C88 40 70 28 70 10 Z';
+
+function designArt(p) {
+  switch (p.design) {
+    case 'saluting-lou':
+      return `
+        <text x="110" y="118" text-anchor="middle" font-size="30">🤟</text>
+        <text x="110" y="150" text-anchor="middle" font-family="Inter, sans-serif"
+              font-weight="800" font-size="30" letter-spacing="1" fill="${p.ink}">LOU</text>
+        <text x="110" y="118" text-anchor="middle" font-size="30" transform="translate(148,0) scale(-1,1) translate(-148,0)">🤟</text>
+      `;
+    case 'under-the-sky':
+      return `
+        ${starsMarkup()}
+        <path d="M104 150 v34 M104 150 l-10 8 M104 150 l10 8 M104 184 l-8 22 M104 184 l8 22" stroke="${p.ink}" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <circle cx="104" cy="138" r="7" fill="${p.ink}"/>
+        <path d="M104 150 L118 130" stroke="${p.ink}" stroke-width="3" stroke-linecap="round"/>
+        <text x="110" y="222" text-anchor="middle" font-family="Playfair Display, serif" font-weight="700" font-size="12" letter-spacing="2" fill="${p.ink}">UNDER THE SKY</text>
+      `;
+    case 'do-your-job':
+      return `
+        <text x="110" y="102" text-anchor="middle" font-family="Inter, sans-serif" font-weight="800" font-size="19" letter-spacing="1" fill="${p.ink}">DO</text>
+        <text x="110" y="124" text-anchor="middle" font-family="Inter, sans-serif" font-weight="800" font-size="19" letter-spacing="1" fill="${p.ink}">YOUR</text>
+        <text x="110" y="146" text-anchor="middle" font-family="Inter, sans-serif" font-weight="800" font-size="19" letter-spacing="1" fill="${p.ink}">JOB</text>
+        <circle cx="110" cy="180" r="16" fill="${p.ink}" opacity=".85"/>
+        <path d="M90 214 q20 -18 40 0 v6 h-40 Z" fill="${p.ink}" opacity=".85"/>
+        <text x="110" y="238" text-anchor="middle" font-family="Playfair Display, serif" font-style="italic" font-size="11" fill="${p.ink}">Lou Holtz</text>
+      `;
+    default:
+      return `<text x="110" y="130" text-anchor="middle" font-family="Playfair Display, serif" font-weight="700" font-size="17" fill="${p.ink}">${p.name}</text>`;
+  }
+}
+
+function starsMarkup() {
+  const pts = [[40,40],[70,25],[100,45],[135,20],[165,42],[55,60],[150,65],[95,15],[180,58]];
+  return pts.map(([x, y], i) => {
+    const r = i % 3 === 0 ? 2.2 : 1.4;
+    return `<circle cx="${x}" cy="${y}" r="${r}" fill="#e3c47a" opacity="${0.5 + (i % 3) * 0.2}"/>`;
+  }).join('');
+}
+
+function teeSVG(p) {
   return `
   <svg class="tee" viewBox="0 0 220 260" xmlns="http://www.w3.org/2000/svg">
-    <path d="M70 10 L20 40 L35 75 L60 62 V240 A6 6 0 0 0 66 246 H154 A6 6 0 0 0 160 240 V62 L185 75 L200 40 L150 10
-             C150 28 132 40 110 40 C88 40 70 28 70 10 Z"
-          fill="${fill}" stroke="rgba(0,0,0,.08)" stroke-width="1.5"/>
-    <text x="110" y="130" text-anchor="middle" font-family="Playfair Display, serif"
-          font-weight="700" font-size="17" fill="${textColor}">
-      ${wrapLabel(label)}
-    </text>
+    <path d="${TEE_PATH}" fill="${p.shirt}" stroke="rgba(0,0,0,.08)" stroke-width="1.5"/>
+    ${designArt(p)}
   </svg>`;
 }
 
-// crude 2-line wrap for the SVG <text> (tspans)
-function wrapLabel(label) {
-  const words = label.split(' ');
-  if (words.length <= 2) {
-    return `<tspan x="110" dy="0">${label}</tspan>`;
-  }
-  const mid = Math.ceil(words.length / 2);
-  const line1 = words.slice(0, mid).join(' ');
-  const line2 = words.slice(mid).join(' ');
-  return `<tspan x="110" dy="-10">${line1}</tspan><tspan x="110" dy="22">${line2}</tspan>`;
-}
-
 // ---------- render product grid ----------
-function renderProducts(filter = 'all') {
+function renderProducts() {
   const grid = document.getElementById('product-grid');
   if (!grid) return;
-  const items = PRODUCTS.filter(p => filter === 'all' || p.category === filter);
 
-  grid.innerHTML = items.map(p => `
+  grid.innerHTML = PRODUCTS.map(p => `
     <article class="product-card">
-      <div class="product-visual" style="background:${p.fill === '#f7f4ec' || p.fill === '#eae8e2' ? '#f0ece2' : '#f0ece2'}">
+      <div class="product-visual">
         ${p.tag ? `<span class="product-tag">${p.tag}</span>` : ''}
-        ${teeSVG(p.fill, p.text, p.name)}
+        ${teeSVG(p)}
       </div>
       <div class="product-body">
         <div class="product-name">${p.name}</div>
@@ -157,18 +126,6 @@ function renderProducts(filter = 'all') {
       </div>
     </article>
   `).join('');
-}
-
-// ---------- filter bar ----------
-function initFilters() {
-  const buttons = document.querySelectorAll('.filter-btn');
-  buttons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      buttons.forEach(b => b.classList.remove('is-active'));
-      btn.classList.add('is-active');
-      renderProducts(btn.dataset.filter);
-    });
-  });
 }
 
 // ---------- mobile nav ----------
@@ -260,8 +217,7 @@ function initMisc() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  renderProducts('all');
-  initFilters();
+  renderProducts();
   initNav();
   initCountdown();
   initReveal();
