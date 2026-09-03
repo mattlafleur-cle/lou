@@ -72,18 +72,47 @@ showing nothing. To add a photo for a new product:
 
 ## Where to host it
 
-Pick whichever fits your workflow:
+Currently hosted on **GitHub Pages**, pointed at the custom domain
+**theloushirt.com** (registered at Hostinger). The repo already has the
+`CNAME` file GitHub Pages needs; the remaining setup is DNS at Hostinger:
 
-- **Separate domain/subdomain** (recommended, fastest): deploy as-is to
-  Netlify, Vercel, Cloudflare Pages, or GitHub Pages, then link to it from
-  your Shopify nav/social bios. Zero risk to your live store.
+1. Log into Hostinger → **hPanel → Domains → theloushirt.com → DNS / Nameservers → DNS Zone Editor**.
+2. Add four **A** records so the bare domain (`theloushirt.com`) points at GitHub Pages:
+
+   | Type | Name | Points to |
+   |---|---|---|
+   | A | @ | 185.199.108.153 |
+   | A | @ | 185.199.109.153 |
+   | A | @ | 185.199.110.153 |
+   | A | @ | 185.199.111.153 |
+
+3. Add one **CNAME** record so `www.theloushirt.com` also works:
+
+   | Type | Name | Points to |
+   |---|---|---|
+   | CNAME | www | mattlafleur-cle.github.io |
+
+4. Remove/replace any existing A or CNAME record already sitting on `@` or
+   `www` (e.g. Hostinger's default parking-page record) — only one record
+   set per name is allowed.
+5. Back in GitHub: **Settings → Pages** on this repo should already show
+   `theloushirt.com` as the custom domain (from the `CNAME` file). Once
+   DNS propagates (minutes to a few hours), it'll show "DNS check
+   successful" — then check **Enforce HTTPS** if it isn't already checked.
+
+DNS changes can take anywhere from a few minutes to 24-48 hours to fully
+propagate. Until then, `https://mattlafleur-cle.github.io/lou/` keeps
+working as before.
+
+### Other hosting options (not what's currently set up)
+
 - **As a Shopify page**: paste the HTML content into a Shopify "page" via
   the theme's HTML editor (you'll need to inline `styles.css`/`script.js`
   or upload them as theme assets, since custom pages can't reference
   arbitrary external files by relative path).
-- **Custom domain root**: if you want `ndshirt.com` itself to show this,
-  that requires replacing your Shopify theme's homepage — bigger change,
-  ask if you want help with that route instead.
+- **ndshirt.com root**: if you ever want `ndshirt.com` itself to show this
+  instead of a separate domain, that requires replacing your Shopify
+  theme's homepage — bigger change, ask if you want help with that route.
 
 ## Local preview
 
