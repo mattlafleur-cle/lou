@@ -74,27 +74,32 @@ function designArt(p) {
   switch (p.design) {
     case 'saluting-lou':
       return `
-        <text x="110" y="118" text-anchor="middle" font-size="30">🤟</text>
-        <text x="110" y="150" text-anchor="middle" font-family="Inter, sans-serif"
-              font-weight="800" font-size="30" letter-spacing="1" fill="${p.ink}">LOU</text>
-        <text x="110" y="118" text-anchor="middle" font-size="30" transform="translate(148,0) scale(-1,1) translate(-148,0)">🤟</text>
+        <text x="110" y="122" text-anchor="middle" font-size="34">🤟</text>
+        <text x="110" y="158" text-anchor="middle" font-family="Inter, sans-serif"
+              font-weight="800" font-size="34" letter-spacing="1" fill="${p.ink}">LOU</text>
+        <text x="110" y="122" text-anchor="middle" font-size="34" transform="translate(148,0) scale(-1,1) translate(-148,0)">🤟</text>
       `;
     case 'under-the-sky':
+      // Solid silhouette (not a stick figure): head, coat-shaped torso, one
+      // arm raised toward the stars, one arm at the side. All filled shapes.
       return `
         ${starsMarkup()}
-        <path d="M104 150 v34 M104 150 l-10 8 M104 150 l10 8 M104 184 l-8 22 M104 184 l8 22" stroke="${p.ink}" stroke-width="3" stroke-linecap="round" fill="none"/>
-        <circle cx="104" cy="138" r="7" fill="${p.ink}"/>
-        <path d="M104 150 L118 130" stroke="${p.ink}" stroke-width="3" stroke-linecap="round"/>
-        <text x="110" y="222" text-anchor="middle" font-family="Playfair Display, serif" font-weight="700" font-size="12" letter-spacing="2" fill="${p.ink}">UNDER THE SKY</text>
+        <circle cx="103" cy="132" r="9" fill="${p.ink}"/>
+        <path d="M103 141 Q90 143 85 156 L79 214 Q103 226 127 214 L121 156 Q116 143 103 141 Z" fill="${p.ink}"/>
+        <path d="M114 148 Q128 146 133 132 L142 100 Q145 94 150 97 Q152 102 149 108 L138 144 Q131 160 113 160 Z" fill="${p.ink}"/>
+        <path d="M89 150 Q80 155 78 172 L74 206 Q78 210 83 207 L89 174 Q92 160 89 150 Z" fill="${p.ink}"/>
+        <text x="110" y="238" text-anchor="middle" font-family="Playfair Display, serif" font-weight="700" font-size="12" letter-spacing="2" fill="${p.ink}">UNDER THE SKY</text>
       `;
     case 'do-your-job':
+      // Bust silhouette: rounded head + jacket-shaped shoulders as one
+      // continuous filled shape, like a portrait cutout.
       return `
-        <text x="110" y="102" text-anchor="middle" font-family="Inter, sans-serif" font-weight="800" font-size="19" letter-spacing="1" fill="${p.ink}">DO</text>
-        <text x="110" y="124" text-anchor="middle" font-family="Inter, sans-serif" font-weight="800" font-size="19" letter-spacing="1" fill="${p.ink}">YOUR</text>
-        <text x="110" y="146" text-anchor="middle" font-family="Inter, sans-serif" font-weight="800" font-size="19" letter-spacing="1" fill="${p.ink}">JOB</text>
-        <circle cx="110" cy="180" r="16" fill="${p.ink}" opacity=".85"/>
-        <path d="M90 214 q20 -18 40 0 v6 h-40 Z" fill="${p.ink}" opacity=".85"/>
-        <text x="110" y="238" text-anchor="middle" font-family="Playfair Display, serif" font-style="italic" font-size="11" fill="${p.ink}">Lou Holtz</text>
+        <text x="110" y="98" text-anchor="middle" font-family="Inter, sans-serif" font-weight="800" font-size="19" letter-spacing="1" fill="${p.ink}">DO</text>
+        <text x="110" y="120" text-anchor="middle" font-family="Inter, sans-serif" font-weight="800" font-size="19" letter-spacing="1" fill="${p.ink}">YOUR</text>
+        <text x="110" y="142" text-anchor="middle" font-family="Inter, sans-serif" font-weight="800" font-size="19" letter-spacing="1" fill="${p.ink}">JOB</text>
+        <circle cx="110" cy="172" r="15" fill="${p.ink}"/>
+        <path d="M110 184 Q80 186 74 214 Q74 222 82 222 L138 222 Q146 222 146 214 Q140 186 110 184 Z" fill="${p.ink}"/>
+        <text x="110" y="240" text-anchor="middle" font-family="Playfair Display, serif" font-style="italic" font-size="12" fill="${p.ink}">Lou Holtz</text>
       `;
     default:
       return `<text x="110" y="130" text-anchor="middle" font-family="Playfair Display, serif" font-weight="700" font-size="17" fill="${p.ink}">${p.name}</text>`;
