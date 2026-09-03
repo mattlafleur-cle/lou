@@ -28,7 +28,7 @@ You don't need any API keys for this to work:
   your real Shopify customer list (tagged `newsletter,saluting-lou-launch`)
   even though this page can be hosted anywhere.
 
-### The current lineup (4 designs, 6 listings)
+### The current lineup (4 designs, 7 listings)
 
 `PRODUCTS` in `script.js` holds the full catalog shown on the site. Right
 now that's:
@@ -38,6 +38,7 @@ now that's:
 | Saluting Lou (Navy Blue) | $26.00 | ✅ confirmed |
 | Saluting Lou (Gold) | $26.00 | ✅ confirmed |
 | Saluting Lou (White) | $26.00 | ⚠️ guessed slug — verify |
+| Saluting Lou (Heather Green) | $26.00 | ➖ links to /collections/all (no dedicated product URL given) |
 | Under the Same Sky (Navy Blue) | $33.98 | ✅ confirmed |
 | Do Your Job (Navy Blue) | $33.98 | ✅ confirmed |
 

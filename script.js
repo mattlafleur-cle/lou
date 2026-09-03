@@ -13,8 +13,8 @@
 // "Shop Now" at the catalog elsewhere, or somewhere else entirely.
 const SHOP_ALL_URL = 'https://ndshirt.com/collections/all';
 
-// The full current lineup — 4 designs, 6 listings (Saluting Lou comes in
-// three colorways). Add a new row here when a new design or colorway
+// The full current lineup — 4 designs, 7 listings (Saluting Lou comes in
+// four colorways). Add a new row here when a new design or colorway
 // goes live; nothing else in this file needs to change. Each `url` is
 // kept for reference (e.g. if you want a specific product linked again
 // later) even though the rendered "Shop Now" button uses SHOP_ALL_URL.
@@ -55,6 +55,17 @@ const PRODUCTS = [
     design: 'saluting-lou',
     shirt: '#f7f4ec',
     ink: '#0d1b3f'
+  },
+  {
+    name: 'Saluting Lou',
+    variant: 'Heather Green',
+    price: '26.00',
+    tag: 'New',
+    url: 'https://ndshirt.com/collections/all', // no dedicated product URL given; same as Shop Now buttons
+    image: 'images/saluting-lou-green.webp',
+    design: 'saluting-lou',
+    shirt: '#4a6b4a',
+    ink: '#c9a961'
   },
   {
     name: 'Under the Same Sky',
