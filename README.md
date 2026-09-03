@@ -53,17 +53,22 @@ that list.
 
 ### Product photos
 
-Each design currently gets a small hand-drawn SVG placeholder that echoes
-its real print (the "LOU" hand-sign mark, the starfield + figure for Under
-the Same Sky, the stacked type + silhouette for Do Your Job) so the page
-works immediately with zero image assets. To swap in real product
-photography instead:
+All 5 current listings use the real product photos in `images/`
+(cropped to trim the mockup's excess whitespace, resized to ~1000px on
+the long side, saved as `.webp`). Each product in `PRODUCTS` has an
+`image` field pointing to its file; `renderProducts()` uses that when
+present.
 
-1. Export/download the product images from Shopify admin.
-2. Drop them in an `images/` folder here.
-3. In `script.js`, add an `image: 'images/saluting-lou-navy.png'` field to
-   a product and swap the `teeSVG(p)` call in `renderProducts()` for an
-   `<img>` tag when `p.image` is set.
+The `design`/`shirt`/`ink` fields on each product are only a fallback —
+if a future product is added without an `image` yet, it automatically
+falls back to a small SVG icon (see `teeSVG()`/`designArt()`) instead of
+showing nothing. To add a photo for a new product:
+
+1. Export/download the product image from Shopify admin.
+2. Crop/resize it (trim the mockup's white margin, ~1000px long side is
+   plenty) and save it into `images/` as `.webp` or another web format.
+3. Add an `image: 'images/your-file.webp'` field to that product in
+   `PRODUCTS` — nothing else needs to change.
 
 ## Where to host it
 

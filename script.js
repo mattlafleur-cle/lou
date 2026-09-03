@@ -18,6 +18,10 @@ const SHOP_ALL_URL = 'https://ndshirt.com/collections/all';
 // goes live; nothing else in this file needs to change. Each `url` is
 // kept for reference (e.g. if you want a specific product linked again
 // later) even though the rendered "Shop Now" button uses SHOP_ALL_URL.
+//
+// `image` is the real product photo (in images/); `design`/`shirt`/`ink`
+// are only used as a fallback SVG icon for a product with no photo yet —
+// see teeSVG() below.
 const PRODUCTS = [
   {
     name: 'Saluting Lou',
@@ -25,6 +29,7 @@ const PRODUCTS = [
     price: '26.00',
     tag: 'New · Launching Today',
     url: 'https://ndshirt.com/products/saluting-lou-navy-blue', // confirmed
+    image: 'images/saluting-lou-navy.webp',
     design: 'saluting-lou',
     shirt: '#0d1b3f',
     ink: '#f7f4ec'
@@ -35,6 +40,7 @@ const PRODUCTS = [
     price: '26.00',
     tag: 'New',
     url: 'https://ndshirt.com/products/saluting-lou-gold', // confirmed
+    image: 'images/saluting-lou-gold.webp',
     design: 'saluting-lou',
     shirt: '#0d1b3f',
     ink: '#c9a961'
@@ -45,6 +51,7 @@ const PRODUCTS = [
     price: '26.00',
     tag: 'New',
     url: 'https://ndshirt.com/products/saluting-lou-white', // TODO: verify exact slug
+    image: 'images/saluting-lou-white.webp',
     design: 'saluting-lou',
     shirt: '#f7f4ec',
     ink: '#0d1b3f'
@@ -55,6 +62,7 @@ const PRODUCTS = [
     price: '33.98',
     tag: null,
     url: 'https://ndshirt.com/products/lou-same-sky', // confirmed
+    image: 'images/under-the-same-sky-navy.webp',
     design: 'under-the-sky',
     shirt: '#0d1b3f',
     ink: '#c9a961'
@@ -65,6 +73,7 @@ const PRODUCTS = [
     price: '33.98',
     tag: null,
     url: 'https://ndshirt.com/products/lou-holtz-do-your-job', // confirmed
+    image: 'images/do-your-job-navy.webp',
     design: 'do-your-job',
     shirt: '#0d1b3f',
     ink: '#c9a961'
@@ -138,7 +147,9 @@ function renderProducts() {
     <article class="product-card">
       <div class="product-visual">
         ${p.tag ? `<span class="product-tag">${p.tag}</span>` : ''}
-        ${teeSVG(p)}
+        ${p.image
+          ? `<img class="tee-photo" src="${p.image}" alt="${p.name} (${p.variant}) t-shirt" loading="lazy">`
+          : teeSVG(p)}
       </div>
       <div class="product-body">
         <div class="product-name">${p.name}</div>
