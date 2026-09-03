@@ -139,10 +139,12 @@ img { max-width: 100%; display: block; }
 .hero-tagline em { font-style: italic; color: var(--white); }
 
 /* hero photo */
-.hero-art { display: flex; justify-content: center; align-items: center; }
+.hero-art { display: flex; justify-content: center; align-self: start; margin-top: -20px; }
 .hero-photo {
-  width: 100%; max-width: 560px; border-radius: 16px;
-  border: 2px solid var(--gold);
+  width: 100%; max-width: 440px; aspect-ratio: 1 / 1;
+  object-fit: cover; object-position: center center;
+  border-radius: 50%;
+  border: 3px solid var(--gold);
   box-shadow: 0 0 0 6px rgba(201,169,97,.12), var(--shadow);
 }
 
