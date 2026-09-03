@@ -29,7 +29,7 @@ body {
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
 }
-h1, h2, h3, .logo-text, .badge-word {
+h1, h2, h3, .logo-text {
   font-family: 'Playfair Display', Georgia, serif;
   margin: 0 0 .5em;
   line-height: 1.1;
@@ -138,28 +138,13 @@ img { max-width: 100%; display: block; }
 .hero-tagline { color: var(--gold-bright); font-weight: 600; font-size: 1rem; }
 .hero-tagline em { font-style: italic; color: var(--white); }
 
-/* hero badge art */
-.hero-art { display: flex; justify-content: center; }
-.badge-ring { position: relative; width: 300px; height: 300px; display: flex; align-items: center; justify-content: center; }
-.badge-stars {
-  position: absolute; inset: 0; border-radius: 50%;
-  border: 1px dashed rgba(201,169,97,.45);
-  animation: spin 40s linear infinite;
-}
-.badge-circle {
-  position: relative; width: 240px; height: 240px; border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, var(--navy-3), var(--navy) 70%);
-  border: 3px solid var(--gold);
+/* hero photo */
+.hero-art { display: flex; justify-content: center; align-items: center; }
+.hero-photo {
+  width: 100%; max-width: 560px; border-radius: 16px;
+  border: 2px solid var(--gold);
   box-shadow: 0 0 0 6px rgba(201,169,97,.12), var(--shadow);
-  display: flex; align-items: center; justify-content: center; gap: 8px;
 }
-.badge-hand { font-size: 1.9rem; }
-.badge-word { font-size: 2.1rem; font-weight: 800; color: var(--gold-bright); }
-.badge-caption {
-  position: absolute; bottom: -34px; left: 50%; transform: translateX(-50%);
-  font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.6); white-space: nowrap;
-}
-@keyframes spin { to { transform: rotate(360deg); } }
 
 /* ---------- legacy ---------- */
 .legacy { background: var(--white); padding: 100px 0; }
