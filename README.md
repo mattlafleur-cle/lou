@@ -18,15 +18,17 @@ It's plain HTML/CSS/JS — no build step, no framework, no dependencies.
 
 You don't need any API keys for this to work:
 
-- **"Shop Now" buttons** link directly to your real Shopify product pages
-  (e.g. `ndshirt.com/products/saluting-lou-navy-blue`). Shoppers pick a size
-  and check out exactly as they do today — nothing about your existing
-  checkout changes.
-- **Newsletter signup** posts directly to your Shopify store's built-in
-  customer form (`https://ndshirt.com/contact#ContactFooter`, `form_type=customer`).
-  This is the same markup Shopify themes use natively, so signups land in
-  your real Shopify customer list (tagged `newsletter,saluting-lou-launch`)
-  even though this page can be hosted anywhere.
+- **"Shop Now" buttons** open `ndshirt.com/collections/all` in a new tab
+  (see `SHOP_ALL_URL` in `script.js`) — shoppers land on your real Shopify
+  catalog to pick a design, size, and check out exactly as they do today.
+  Nothing about your existing checkout changes.
+
+There was previously a newsletter signup form here (posting to Shopify's
+built-in customer form). It was removed after erroring out in testing —
+if you want it back, the Shopify "customer" form pattern
+(`form_type=customer` posted to `/contact`) is the standard way to do it,
+but it needs a working store contact form behind it, which is worth
+confirming in Shopify admin first.
 
 ### The current lineup (4 designs, 7 listings)
 
