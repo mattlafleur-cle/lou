@@ -3,14 +3,21 @@
 // Product data + interactions
 //
 // IMPORTANT: One `url` value below is a best-guess placeholder (marked
-// "TODO: verify"). Replace it with the exact product page URL from your
-// Shopify admin before this site goes live — a wrong slug will 404.
-// Confirmed-working URLs are marked accordingly.
+// "TODO: verify"). Confirmed-working URLs are marked accordingly.
 // =========================================================
+
+// Every "Shop Now" button on the site (product cards, hero, sticky buy
+// bar) currently opens the full catalog in a new tab rather than an
+// individual product page — see initShopLinks() below and the matching
+// hardcoded hrefs in index.html. Change this one constant to point
+// "Shop Now" at the catalog elsewhere, or somewhere else entirely.
+const SHOP_ALL_URL = 'https://ndshirt.com/collections/all';
 
 // The full current lineup — 4 designs, 6 listings (Saluting Lou comes in
 // three colorways). Add a new row here when a new design or colorway
-// goes live; nothing else in this file needs to change.
+// goes live; nothing else in this file needs to change. Each `url` is
+// kept for reference (e.g. if you want a specific product linked again
+// later) even though the rendered "Shop Now" button uses SHOP_ALL_URL.
 const PRODUCTS = [
   {
     name: 'Saluting Lou',
@@ -137,7 +144,7 @@ function renderProducts() {
         <div class="product-name">${p.name}</div>
         <div class="product-variant">${p.variant}</div>
         <div class="product-price">$${p.price}</div>
-        <a class="product-cta" href="${p.url}">Shop Now</a>
+        <a class="product-cta" href="${SHOP_ALL_URL}" target="_blank" rel="noopener noreferrer">Shop Now</a>
       </div>
     </article>
   `).join('');
