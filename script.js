@@ -2,15 +2,15 @@
 // Saluting Lou — Tribute Collection
 // Product data + interactions
 //
-// IMPORTANT: Several `url` values below are best-guess placeholders
-// (marked "TODO: verify"). Replace them with the exact product page
-// URLs from your Shopify admin before this site goes live — a wrong
-// slug will 404. Confirmed-working URLs are marked accordingly.
+// IMPORTANT: One `url` value below is a best-guess placeholder (marked
+// "TODO: verify"). Replace it with the exact product page URL from your
+// Shopify admin before this site goes live — a wrong slug will 404.
+// Confirmed-working URLs are marked accordingly.
 // =========================================================
 
-// The full current lineup — 4 designs, 5 listings (Saluting Lou comes in
-// two colorways). Add a new row here when a new design goes live; nothing
-// else in this file needs to change.
+// The full current lineup — 4 designs, 6 listings (Saluting Lou comes in
+// three colorways). Add a new row here when a new design or colorway
+// goes live; nothing else in this file needs to change.
 const PRODUCTS = [
   {
     name: 'Saluting Lou',
@@ -21,6 +21,16 @@ const PRODUCTS = [
     design: 'saluting-lou',
     shirt: '#0d1b3f',
     ink: '#f7f4ec'
+  },
+  {
+    name: 'Saluting Lou',
+    variant: 'Gold',
+    price: '26.00',
+    tag: 'New',
+    url: 'https://ndshirt.com/products/saluting-lou-gold', // confirmed
+    design: 'saluting-lou',
+    shirt: '#0d1b3f',
+    ink: '#c9a961'
   },
   {
     name: 'Saluting Lou',
