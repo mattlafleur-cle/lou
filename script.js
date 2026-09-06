@@ -27,7 +27,7 @@ const PRODUCTS = [
     name: 'Saluting Lou',
     variant: 'Navy Blue',
     price: '26.00',
-    tag: 'New · Launching Today',
+    tag: 'New · Launched This Month',
     url: 'https://ndshirt.com/products/saluting-lou-navy-blue', // confirmed
     image: 'images/saluting-lou-navy.webp',
     design: 'saluting-lou',
