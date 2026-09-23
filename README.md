@@ -37,17 +37,17 @@ now that's:
 
 | Product | Price | URL status |
 |---|---|---|
-| Saluting Lou (Navy Blue) | $26.00 | ✅ confirmed |
-| Saluting Lou (Gold) | $26.00 | ✅ confirmed |
-| Saluting Lou (White) | $26.00 | ⚠️ guessed slug — verify |
-| Saluting Lou (Heather Green) | $26.00 | ➖ links to /collections/all (no dedicated product URL given) |
-| Under the Same Sky (Navy Blue) | $33.98 | ✅ confirmed |
-| Do Your Job (Navy Blue) | $33.98 | ✅ confirmed |
+| Saluting Lou (Navy Blue) | $24.00 | ✅ confirmed |
+| Saluting Lou (Gold) | $20.00 | ✅ confirmed |
+| Saluting Lou (White) | $20.00 | ⚠️ guessed slug — verify |
+| Saluting Lou (Heather Green) | $20.00 | ➖ links to /collections/all (no dedicated product URL given) |
+| Under the Same Sky (Navy Blue) | $24.00 | ✅ confirmed |
+| Do Your Job (Navy Blue) | $20.00 | ✅ confirmed |
 
-One thing to double check: your catalog page showed Saluting Lou (Navy)
-at $15.50, but the product page itself showed $26.00 — I went with $26.00
-since that's the more direct source, but worth confirming which is
-correct in Shopify admin before launch.
+Prices last revised 2026-09-23, taken directly from the ndshirt.com
+catalog page. Note Saluting Lou (Navy Blue) and Under the Same Sky both
+sit at $24.00 while the rest of the lineup is $20.00 — that split is
+real, not a typo, so keep it if you revise prices again later.
 
 When a new design goes live (or an existing one gets a new colorway),
 add one object to the `PRODUCTS` array at the top of `script.js` — nothing
