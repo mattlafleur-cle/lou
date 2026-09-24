@@ -189,53 +189,6 @@ function initNav() {
   });
 }
 
-// ---------- countdown to end of this week's Friday ----------
-function initCountdown() {
-  const els = {
-    days: document.getElementById('cd-days'),
-    hours: document.getElementById('cd-hours'),
-    mins: document.getElementById('cd-mins'),
-    secs: document.getElementById('cd-secs')
-  };
-  if (!els.days) return;
-
-  function nextFridayEnd() {
-    const now = new Date();
-    const target = new Date(now);
-    const day = now.getDay(); // 0 Sun ... 5 Fri ... 6 Sat
-    let daysUntilFriday = (5 - day + 7) % 7;
-    // if it's already Friday but past end-of-day, roll to next week
-    if (day === 5 && now.getHours() >= 23 && now.getMinutes() >= 59) {
-      daysUntilFriday = 7;
-    }
-    target.setDate(now.getDate() + daysUntilFriday);
-    target.setHours(23, 59, 59, 0);
-    return target;
-  }
-
-  const target = nextFridayEnd();
-
-  function tick() {
-    const now = new Date();
-    let diff = Math.max(0, target - now);
-    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-    diff -= d * (1000 * 60 * 60 * 24);
-    const h = Math.floor(diff / (1000 * 60 * 60));
-    diff -= h * (1000 * 60 * 60);
-    const m = Math.floor(diff / (1000 * 60));
-    diff -= m * (1000 * 60);
-    const s = Math.floor(diff / 1000);
-
-    els.days.textContent = String(d).padStart(2, '0');
-    els.hours.textContent = String(h).padStart(2, '0');
-    els.mins.textContent = String(m).padStart(2, '0');
-    els.secs.textContent = String(s).padStart(2, '0');
-  }
-
-  tick();
-  setInterval(tick, 1000);
-}
-
 // ---------- scroll reveal ----------
 function initReveal() {
   const items = document.querySelectorAll('.reveal');
@@ -263,7 +216,6 @@ function initMisc() {
 document.addEventListener('DOMContentLoaded', () => {
   renderProducts();
   initNav();
-  initCountdown();
   initReveal();
   initMisc();
 });

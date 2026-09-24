@@ -12,7 +12,7 @@ It's plain HTML/CSS/JS — no build step, no framework, no dependencies.
 
 - `index.html` — page structure/content
 - `styles.css` — all styling (navy/gold ND palette, responsive)
-- `script.js` — product data, countdown timer, filters, mobile nav, scroll animations
+- `script.js` — product data, mobile nav, scroll animations
 
 ## How it integrates with Shopify
 
@@ -128,10 +128,6 @@ python3 -m http.server 8000
 
 ## Customizing
 
-- **Sale end date**: the countdown always targets "this Friday, 11:59pm
-  local time." If your sale end date is fixed regardless of day-of-week,
-  replace the logic in `initCountdown()` in `script.js` with a hard-coded
-  `new Date('2026-09-05T23:59:59')`-style target.
 - **Colors/fonts**: all in the `:root` variables at the top of `styles.css`.
 - **Legal**: a small disclaimer is included in the footer/FAQ noting this
   is an independent fan tribute, not officially licensed by the University
