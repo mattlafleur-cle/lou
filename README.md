@@ -37,17 +37,16 @@ now that's:
 
 | Product | Price | URL status |
 |---|---|---|
-| Saluting Lou (Navy Blue) | $24.00 | ✅ confirmed |
-| Saluting Lou (Gold) | $20.00 | ✅ confirmed |
-| Saluting Lou (White) | $20.00 | ⚠️ guessed slug — verify |
-| Saluting Lou (Heather Green) | $20.00 | ➖ links to /collections/all (no dedicated product URL given) |
-| Under the Same Sky (Navy Blue) | $24.00 | ✅ confirmed |
-| Do Your Job (Navy Blue) | $20.00 | ✅ confirmed |
+| Saluting Lou (Navy Blue) | $21.00 | ✅ confirmed |
+| Saluting Lou (Gold) | $21.00 | ✅ confirmed |
+| Saluting Lou (White) | $21.00 | ⚠️ guessed slug — verify |
+| Saluting Lou (Heather Green) | $21.00 | ➖ links to /collections/all (no dedicated product URL given) |
+| Under the Same Sky (Navy Blue) | $21.00 | ✅ confirmed |
+| Do Your Job (Navy Blue) | $21.00 | ✅ confirmed |
 
-Prices last revised 2026-09-23, taken directly from the ndshirt.com
-catalog page. Note Saluting Lou (Navy Blue) and Under the Same Sky both
-sit at $24.00 while the rest of the lineup is $20.00 — that split is
-real, not a typo, so keep it if you revise prices again later.
+Prices last revised 2026-09-24, taken directly from the ndshirt.com
+catalog page — the whole lineup is now a flat $21.00 (the earlier
+$24/$20 split is gone).
 
 When a new design goes live (or an existing one gets a new colorway),
 add one object to the `PRODUCTS` array at the top of `script.js` — nothing

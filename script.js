@@ -26,7 +26,7 @@ const PRODUCTS = [
   {
     name: 'Saluting Lou',
     variant: 'Navy Blue',
-    price: '24.00',
+    price: '21.00',
     tag: 'New · Launched This Month',
     url: 'https://ndshirt.com/products/saluting-lou-navy-blue', // confirmed
     image: 'images/saluting-lou-navy.webp',
@@ -37,7 +37,7 @@ const PRODUCTS = [
   {
     name: 'Saluting Lou',
     variant: 'Gold',
-    price: '20.00',
+    price: '21.00',
     tag: 'New',
     url: 'https://ndshirt.com/products/saluting-lou-gold', // confirmed
     image: 'images/saluting-lou-gold.webp',
@@ -48,7 +48,7 @@ const PRODUCTS = [
   {
     name: 'Saluting Lou',
     variant: 'White',
-    price: '20.00',
+    price: '21.00',
     tag: 'New',
     url: 'https://ndshirt.com/products/saluting-lou-white', // TODO: verify exact slug
     image: 'images/saluting-lou-white.webp',
@@ -59,7 +59,7 @@ const PRODUCTS = [
   {
     name: 'Saluting Lou',
     variant: 'Heather Green',
-    price: '20.00',
+    price: '21.00',
     tag: 'New',
     url: 'https://ndshirt.com/collections/all', // no dedicated product URL given; same as Shop Now buttons
     image: 'images/saluting-lou-green.webp',
@@ -70,7 +70,7 @@ const PRODUCTS = [
   {
     name: 'Under the Same Sky',
     variant: 'Navy Blue',
-    price: '24.00',
+    price: '21.00',
     tag: null,
     url: 'https://ndshirt.com/products/lou-same-sky', // confirmed
     image: 'images/under-the-same-sky-navy.webp',
@@ -81,7 +81,7 @@ const PRODUCTS = [
   {
     name: 'Do Your Job',
     variant: 'Navy Blue',
-    price: '20.00',
+    price: '21.00',
     tag: null,
     url: 'https://ndshirt.com/products/lou-holtz-do-your-job', // confirmed
     image: 'images/do-your-job-navy.webp',
