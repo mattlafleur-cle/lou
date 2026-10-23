@@ -1,198 +1,42 @@
 // =========================================================
-// Saluting Lou — Tribute Collection
-// Product data + interactions
+// Lou Tribute Collection: interactions
 //
-// IMPORTANT: One `url` value below is a best-guess placeholder (marked
-// "TODO: verify"). Confirmed-working URLs are marked accordingly.
+// The product grid is plain HTML in index.html (so search engines and
+// visitors without JavaScript see every shirt and link). To add a design
+// or colorway, copy one <article class="product-card"> block there.
+// This file only handles the mobile menu, scroll reveal, the footer year,
+// and optional shop-click measurement.
 // =========================================================
-
-// Every "Shop Now" button on the site (product cards, hero, sticky buy
-// bar) currently opens the full catalog in a new tab rather than an
-// individual product page — see initShopLinks() below and the matching
-// hardcoded hrefs in index.html. Change this one constant to point
-// "Shop Now" at the catalog elsewhere, or somewhere else entirely.
-const SHOP_ALL_URL = 'https://ndshirt.com/collections/all';
-
-// The full current lineup — 4 designs, 7 listings (Saluting Lou comes in
-// four colorways). Add a new row here when a new design or colorway
-// goes live; nothing else in this file needs to change. Each `url` is
-// kept for reference (e.g. if you want a specific product linked again
-// later) even though the rendered "Shop Now" button uses SHOP_ALL_URL.
-//
-// `image` is the real product photo (in images/); `design`/`shirt`/`ink`
-// are only used as a fallback SVG icon for a product with no photo yet —
-// see teeSVG() below.
-const PRODUCTS = [
-  {
-    name: 'Saluting Lou',
-    variant: 'Navy Blue',
-    price: '21.00',
-    tag: 'New · Launched This Month',
-    url: 'https://ndshirt.com/products/saluting-lou-navy-blue', // confirmed
-    image: 'images/saluting-lou-navy.webp',
-    design: 'saluting-lou',
-    shirt: '#0d1b3f',
-    ink: '#f7f4ec'
-  },
-  {
-    name: 'Saluting Lou',
-    variant: 'Gold',
-    price: '21.00',
-    tag: 'New',
-    url: 'https://ndshirt.com/products/saluting-lou-gold', // confirmed
-    image: 'images/saluting-lou-gold.webp',
-    design: 'saluting-lou',
-    shirt: '#0d1b3f',
-    ink: '#c9a961'
-  },
-  {
-    name: 'Saluting Lou',
-    variant: 'White',
-    price: '21.00',
-    tag: 'New',
-    url: 'https://ndshirt.com/products/saluting-lou-white', // TODO: verify exact slug
-    image: 'images/saluting-lou-white.webp',
-    design: 'saluting-lou',
-    shirt: '#f7f4ec',
-    ink: '#0d1b3f'
-  },
-  {
-    name: 'Saluting Lou',
-    variant: 'Heather Green',
-    price: '21.00',
-    tag: 'New',
-    url: 'https://ndshirt.com/collections/all', // no dedicated product URL given; same as Shop Now buttons
-    image: 'images/saluting-lou-green.webp',
-    design: 'saluting-lou',
-    shirt: '#4a6b4a',
-    ink: '#c9a961'
-  },
-  {
-    name: 'Under the Same Sky',
-    variant: 'Navy Blue',
-    price: '21.00',
-    tag: null,
-    url: 'https://ndshirt.com/products/lou-same-sky', // confirmed
-    image: 'images/under-the-same-sky-navy.webp',
-    design: 'under-the-sky',
-    shirt: '#0d1b3f',
-    ink: '#c9a961'
-  },
-  {
-    name: 'Do Your Job',
-    variant: 'Navy Blue',
-    price: '21.00',
-    tag: null,
-    url: 'https://ndshirt.com/products/lou-holtz-do-your-job', // confirmed
-    image: 'images/do-your-job-navy.webp',
-    design: 'do-your-job',
-    shirt: '#0d1b3f',
-    ink: '#c9a961'
-  }
-];
-
-// ---------- product artwork ----------
-// Each design gets its own hand-drawn placeholder that echoes the real
-// print (see README "Product photos") rather than a generic name-on-shirt
-// card. Swap these for real product photography when it's ready.
-const TEE_PATH = 'M70 10 L20 40 L35 75 L60 62 V240 A6 6 0 0 0 66 246 H154 A6 6 0 0 0 160 240 V62 L185 75 L200 40 L150 10 C150 28 132 40 110 40 C88 40 70 28 70 10 Z';
-
-function designArt(p) {
-  switch (p.design) {
-    case 'saluting-lou':
-      return `
-        <text x="110" y="122" text-anchor="middle" font-size="34">🤟</text>
-        <text x="110" y="158" text-anchor="middle" font-family="Inter, sans-serif"
-              font-weight="800" font-size="34" letter-spacing="1" fill="${p.ink}">LOU</text>
-        <text x="110" y="122" text-anchor="middle" font-size="34" transform="translate(148,0) scale(-1,1) translate(-148,0)">🤟</text>
-      `;
-    case 'under-the-sky':
-      // Solid silhouette (not a stick figure): head, coat-shaped torso, one
-      // arm raised toward the stars, one arm at the side. All filled shapes.
-      return `
-        ${starsMarkup()}
-        <circle cx="103" cy="132" r="9" fill="${p.ink}"/>
-        <path d="M103 141 Q90 143 85 156 L79 214 Q103 226 127 214 L121 156 Q116 143 103 141 Z" fill="${p.ink}"/>
-        <path d="M114 148 Q128 146 133 132 L142 100 Q145 94 150 97 Q152 102 149 108 L138 144 Q131 160 113 160 Z" fill="${p.ink}"/>
-        <path d="M89 150 Q80 155 78 172 L74 206 Q78 210 83 207 L89 174 Q92 160 89 150 Z" fill="${p.ink}"/>
-        <text x="110" y="238" text-anchor="middle" font-family="Playfair Display, serif" font-weight="700" font-size="12" letter-spacing="2" fill="${p.ink}">UNDER THE SKY</text>
-      `;
-    case 'do-your-job':
-      // Bust silhouette: rounded head + jacket-shaped shoulders as one
-      // continuous filled shape, like a portrait cutout.
-      return `
-        <text x="110" y="98" text-anchor="middle" font-family="Inter, sans-serif" font-weight="800" font-size="19" letter-spacing="1" fill="${p.ink}">DO</text>
-        <text x="110" y="120" text-anchor="middle" font-family="Inter, sans-serif" font-weight="800" font-size="19" letter-spacing="1" fill="${p.ink}">YOUR</text>
-        <text x="110" y="142" text-anchor="middle" font-family="Inter, sans-serif" font-weight="800" font-size="19" letter-spacing="1" fill="${p.ink}">JOB</text>
-        <circle cx="110" cy="172" r="15" fill="${p.ink}"/>
-        <path d="M110 184 Q80 186 74 214 Q74 222 82 222 L138 222 Q146 222 146 214 Q140 186 110 184 Z" fill="${p.ink}"/>
-        <text x="110" y="240" text-anchor="middle" font-family="Playfair Display, serif" font-style="italic" font-size="12" fill="${p.ink}">Lou Holtz</text>
-      `;
-    default:
-      return `<text x="110" y="130" text-anchor="middle" font-family="Playfair Display, serif" font-weight="700" font-size="17" fill="${p.ink}">${p.name}</text>`;
-  }
-}
-
-function starsMarkup() {
-  const pts = [[40,40],[70,25],[100,45],[135,20],[165,42],[55,60],[150,65],[95,15],[180,58]];
-  return pts.map(([x, y], i) => {
-    const r = i % 3 === 0 ? 2.2 : 1.4;
-    return `<circle cx="${x}" cy="${y}" r="${r}" fill="#e3c47a" opacity="${0.5 + (i % 3) * 0.2}"/>`;
-  }).join('');
-}
-
-function teeSVG(p) {
-  return `
-  <svg class="tee" viewBox="0 0 220 260" xmlns="http://www.w3.org/2000/svg">
-    <path d="${TEE_PATH}" fill="${p.shirt}" stroke="rgba(0,0,0,.08)" stroke-width="1.5"/>
-    ${designArt(p)}
-  </svg>`;
-}
-
-// ---------- render product grid ----------
-function renderProducts() {
-  const grid = document.getElementById('product-grid');
-  if (!grid) return;
-
-  grid.innerHTML = PRODUCTS.map(p => `
-    <article class="product-card">
-      <div class="product-visual">
-        ${p.tag ? `<span class="product-tag">${p.tag}</span>` : ''}
-        ${p.image
-          ? `<img class="tee-photo" src="${p.image}" alt="${p.name} (${p.variant}) t-shirt" loading="lazy">`
-          : teeSVG(p)}
-      </div>
-      <div class="product-body">
-        <div class="product-name">${p.name}</div>
-        <div class="product-variant">${p.variant}</div>
-        <div class="product-price">$${p.price}</div>
-        <a class="product-cta" href="${SHOP_ALL_URL}" target="_blank" rel="noopener noreferrer">Shop Now</a>
-      </div>
-    </article>
-  `).join('');
-}
 
 // ---------- mobile nav ----------
 function initNav() {
   const toggle = document.getElementById('nav-toggle');
   const header = document.querySelector('.site-header');
   if (!toggle || !header) return;
+  const close = () => {
+    header.classList.remove('nav-open');
+    toggle.setAttribute('aria-expanded', 'false');
+  };
   toggle.addEventListener('click', () => {
     const isOpen = header.classList.toggle('nav-open');
     toggle.setAttribute('aria-expanded', String(isOpen));
   });
-  document.querySelectorAll('.main-nav a').forEach(link => {
-    link.addEventListener('click', () => {
-      header.classList.remove('nav-open');
-      toggle.setAttribute('aria-expanded', 'false');
-    });
+  document.querySelectorAll('.main-nav a').forEach(link => link.addEventListener('click', close));
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && header.classList.contains('nav-open')) {
+      close();
+      toggle.focus();
+    }
   });
 }
 
 // ---------- scroll reveal ----------
+// Content is visible by default; the fade-in only applies once this script
+// has run (the "js" class on <html>), and never above the fold.
 function initReveal() {
   const items = document.querySelectorAll('.reveal');
-  if (!('IntersectionObserver' in window)) {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduceMotion || !('IntersectionObserver' in window)) {
     items.forEach(el => el.classList.add('is-visible'));
     return;
   }
@@ -207,6 +51,27 @@ function initReveal() {
   items.forEach(el => observer.observe(el));
 }
 
+// ---------- shop-click measurement ----------
+// No analytics is installed on this site today, so this does nothing until
+// a Google tag (gtag.js) or Tag Manager (dataLayer) is added to index.html.
+// Links marked data-track="..." then send one "shop_click" event with the
+// link position and destination path. No personal data is collected.
+function initShopTracking() {
+  document.addEventListener('click', e => {
+    const link = e.target.closest('a[data-track]');
+    if (!link) return;
+    const params = {
+      link_id: link.dataset.track,
+      link_url: link.hostname + link.pathname
+    };
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'shop_click', params);
+    } else if (Array.isArray(window.dataLayer)) {
+      window.dataLayer.push({ event: 'shop_click', ...params });
+    }
+  });
+}
+
 // ---------- misc ----------
 function initMisc() {
   const yearEl = document.getElementById('year');
@@ -214,8 +79,8 @@ function initMisc() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  renderProducts();
   initNav();
   initReveal();
+  initShopTracking();
   initMisc();
 });
