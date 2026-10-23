@@ -1,76 +1,69 @@
-# Saluting Lou — Tribute Collection Landing Page
+# Saluting Lou: Tribute Collection Landing Page
 
 A standalone marketing/landing site for the Lou Holtz tribute t-shirt line,
 built to sit **alongside** your existing Shopify store at
-[ndshirt.com](https://ndshirt.com) — it spotlights the new **Saluting Lou**
-launch and the full collection, and hands off to Shopify for actual size
+[ndshirt.com](https://ndshirt.com): it spotlights **Saluting Lou** and the
+full Lou Holtz tribute collection, and hands off to Shopify for actual size
 selection, cart, and checkout.
 
-It's plain HTML/CSS/JS — no build step, no framework, no dependencies.
+It's plain HTML/CSS/JS: no build step, no framework, no dependencies.
 
 ## Files
 
-- `index.html` — page structure/content
-- `styles.css` — all styling (navy/gold ND palette, responsive)
-- `script.js` — product data, mobile nav, scroll animations
+- `index.html`: page structure/content
+- `styles.css`: all styling (navy/gold ND palette, responsive)
+- `script.js`: mobile nav, scroll animations, optional click events
 
 ## How it integrates with Shopify
 
-You don't need any API keys for this to work:
+No API keys are involved. The page is a brand landing page; ndshirt.com
+(Shopify) handles size selection, cart, and checkout.
 
-- **"Shop Now" buttons** open `ndshirt.com/collections/all` in a new tab
-  (see `SHOP_ALL_URL` in `script.js`) — shoppers land on your real Shopify
-  catalog to pick a design, size, and check out exactly as they do today.
-  Nothing about your existing checkout changes.
+- Each product card links to its exact ndshirt.com product page.
+- Collection-wide buttons link to `ndshirt.com/collections/lou-holtz`.
+- Outbound links carry `utm_source=theloushirt.com` parameters so Shopify
+  analytics can attribute visits and orders to this site, plus a
+  `data-track` label for optional click events (see `script.js`).
 
-There was previously a newsletter signup form here (posting to Shopify's
-built-in customer form). It was removed after erroring out in testing —
-if you want it back, the Shopify "customer" form pattern
-(`form_type=customer` posted to `/contact`) is the standard way to do it,
-but it needs a working store contact form behind it, which is worth
-confirming in Shopify admin first.
+### The current lineup (3 designs, 6 Shopify products)
 
-### The current lineup (4 designs, 7 listings)
+Verified against the live ndshirt.com catalog on 2026-10-23:
 
-`PRODUCTS` in `script.js` holds the full catalog shown on the site. Right
-now that's:
-
-| Product | Price | URL status |
+| Card | Shopify product | Sizes |
 |---|---|---|
-| Saluting Lou (Navy Blue) | $21.00 | ✅ confirmed |
-| Saluting Lou (Gold) | $21.00 | ✅ confirmed |
-| Saluting Lou (White) | $21.00 | ⚠️ guessed slug — verify |
-| Saluting Lou (Heather Green) | $21.00 | ➖ links to /collections/all (no dedicated product URL given) |
-| Under the Same Sky (Navy Blue) | $21.00 | ✅ confirmed |
-| Do Your Job (Navy Blue) | $21.00 | ✅ confirmed |
+| Saluting Lou, navy shirt, white print | `/products/saluting-lou-navy-blue` | XS to 5XL |
+| Saluting Lou, gold print on navy | `/products/saluting-lou-gold` | XS to 5XL |
+| Saluting Lou, white shirt, navy print | `/products/saluting-lou-white` | XS to 5XL |
+| Saluting Lou, heather green, gold print | `/products/saluting-lou-green` | XS to 3XL |
+| Under the Same Sky, navy | `/products/lou-same-sky` | XS to 5XL |
+| Do Your Job, navy | `/products/lou-holtz-do-your-job` | XS to 5XL |
 
-Prices last revised 2026-09-24, taken directly from the ndshirt.com
-catalog page — the whole lineup is now a flat $21.00 (the earlier
-$24/$20 split is gone).
+Prices vary by size on every product: XS and S $21, M $24, L to 2XL $26,
+3XL and up $29. The page says "From $21" and lists the ladder. If Shopify
+prices or sizes change, update the cards, the price note, the FAQ, and
+the meta description in `index.html`.
 
-When a new design goes live (or an existing one gets a new colorway),
-add one object to the `PRODUCTS` array at the top of `script.js` — nothing
-else in the file needs to change, the grid re-renders automatically from
-that list.
+### Adding a design or colorway
 
-### Product photos
+The product grid is static HTML (so search engines and no-JS visitors see
+it). Copy one `<article class="product-card">` block in `index.html`,
+then update its image, alt text, color line, sizes, and product URL.
 
-All 5 current listings use the real product photos in `images/`
-(cropped to trim the mockup's excess whitespace, resized to ~1000px on
-the long side, saved as `.webp`). Each product in `PRODUCTS` has an
-`image` field pointing to its file; `renderProducts()` uses that when
-present.
+Product images: export from Shopify, trim the white margin, and save
+400px and 800px wide WebP versions into `images/opt/` (see the existing
+`*-400.webp` / `*-800.webp` pairs). Keep `width`/`height` on the `<img>`
+so the layout does not shift while images load.
 
-The `design`/`shirt`/`ink` fields on each product are only a fallback —
-if a future product is added without an `image` yet, it automatically
-falls back to a small SVG icon (see `teeSVG()`/`designArt()`) instead of
-showing nothing. To add a photo for a new product:
+### SEO and performance files
 
-1. Export/download the product image from Shopify admin.
-2. Crop/resize it (trim the mockup's white margin, ~1000px long side is
-   plenty) and save it into `images/` as `.webp` or another web format.
-3. Add an `image: 'images/your-file.webp'` field to that product in
-   `PRODUCTS` — nothing else needs to change.
+- `robots.txt` allows crawling and points to `sitemap.xml`.
+- `sitemap.xml` lists the one canonical URL. Update `<lastmod>` only
+  when the page content meaningfully changes.
+- `404.html` is served by GitHub Pages with a real 404 status.
+- Fonts are self-hosted in `fonts/` (SIL Open Font License); there is no
+  Google Fonts dependency.
+- The hero image is served as AVIF/WebP at three sizes from
+  `images/opt/`; the original files in `images/` are kept as sources.
 
 ## Where to host it
 
@@ -95,12 +88,12 @@ Currently hosted on **GitHub Pages**, pointed at the custom domain
    | CNAME | www | mattlafleur-cle.github.io |
 
 4. Remove/replace any existing A or CNAME record already sitting on `@` or
-   `www` (e.g. Hostinger's default parking-page record) — only one record
+   `www` (e.g. Hostinger's default parking-page record): only one record
    set per name is allowed.
 5. Back in GitHub: **Settings → Pages** on this repo should already show
    `theloushirt.com` as the custom domain (from the `CNAME` file). Once
    DNS propagates (minutes to a few hours), it'll show "DNS check
-   successful" — then check **Enforce HTTPS** if it isn't already checked.
+   successful": then check **Enforce HTTPS** if it isn't already checked.
 
 DNS changes can take anywhere from a few minutes to 24-48 hours to fully
 propagate. Until then, `https://mattlafleur-cle.github.io/lou/` keeps
@@ -114,11 +107,11 @@ working as before.
   arbitrary external files by relative path).
 - **ndshirt.com root**: if you ever want `ndshirt.com` itself to show this
   instead of a separate domain, that requires replacing your Shopify
-  theme's homepage — bigger change, ask if you want help with that route.
+  theme's homepage: bigger change, ask if you want help with that route.
 
 ## Local preview
 
-No build tools needed — just open `index.html` in a browser, or serve it:
+No build tools needed: just open `index.html` in a browser, or serve it:
 
 ```bash
 python3 -m http.server 8000
@@ -128,7 +121,7 @@ python3 -m http.server 8000
 ## Customizing
 
 - **Colors/fonts**: all in the `:root` variables at the top of `styles.css`.
-- **Legal**: a small disclaimer is included in the footer/FAQ noting this
-  is an independent fan tribute, not officially licensed by the University
-  of Notre Dame — worth keeping given ND's trademarks, but adjust wording
-  to match however you've handled it on the main store.
+- **Disclaimer**: the footer, FAQ, and "How ordering works" section note
+  that this is an independent fan tribute, not affiliated with or endorsed
+  by the University of Notre Dame. Keep the wording consistent with the
+  store.

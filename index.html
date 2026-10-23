@@ -3,41 +3,81 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Saluting Lou — Notre Dame Tribute Tees</title>
-<meta name="description" content="Saluting Lou launches today. Shop the Lou Holtz tribute t-shirt collection — Saluting Lou, Under the Same Sky, and Do Your Job. One name. One legacy." />
+<title>Saluting Lou Shirt &amp; Lou Holtz Tribute Tees | The Lou Shirt</title>
+<meta name="description" content="Saluting Lou and other Lou Holtz tribute t-shirts. Four Saluting Lou colorways plus two more designs, sizes up to 5XL, from $21. Checkout at ndshirt.com." />
+<link rel="canonical" href="https://theloushirt.com/" />
+<meta name="theme-color" content="#0d1b3f" />
+<script>document.documentElement.classList.add('js');</script>
 
-<meta property="og:title" content="Saluting Lou — Notre Dame Tribute Tees" />
-<meta property="og:description" content="One name. One legacy. Shop the Lou Holtz tribute collection." />
 <meta property="og:type" content="website" />
+<meta property="og:site_name" content="The Lou Shirt" />
+<meta property="og:title" content="Saluting Lou Shirt &amp; Lou Holtz Tribute Tees" />
+<meta property="og:description" content="A wearable tribute to Coach Lou Holtz. Saluting Lou in four colorways, plus Under the Same Sky and Do Your Job. From $21 at ndshirt.com." />
 <meta property="og:url" content="https://theloushirt.com/" />
-<meta property="og:image" content="https://theloushirt.com/images/hero-lou-holtz.jpg" />
+<meta property="og:image" content="https://theloushirt.com/images/og-the-lou-shirt.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Illustrated tribute artwork of Coach Lou Holtz with the words A Legacy of Faith, Leadership and Victory" />
+<meta name="twitter:card" content="summary_large_image" />
 
 <link rel="icon" type="image/png" href="images/favicon-the-lou-shirt.png" />
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
+<link rel="preload" href="fonts/playfair-display-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="stylesheet" href="styles.css" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://theloushirt.com/#website",
+      "url": "https://theloushirt.com/",
+      "name": "The Lou Shirt",
+      "alternateName": ["Lou Tribute Collection", "theloushirt.com"],
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://theloushirt.com/#webpage",
+      "url": "https://theloushirt.com/",
+      "name": "Saluting Lou Shirt & Lou Holtz Tribute Tees",
+      "description": "Saluting Lou and other Lou Holtz tribute t-shirts. Four Saluting Lou colorways plus two more designs, sizes up to 5XL, from $21. Checkout at ndshirt.com.",
+      "isPartOf": { "@id": "https://theloushirt.com/#website" },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://theloushirt.com/images/og-the-lou-shirt.jpg",
+        "width": 1200,
+        "height": 630
+      },
+      "inLanguage": "en-US"
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
+<a class="skip-link" href="#shop">Skip to the shirts</a>
+
 <!-- ============ ANNOUNCEMENT BAR ============ -->
-<div class="announce" id="announce">
-  <p>🏈 <strong>Go Irish, Beat Boilermakers!</strong></p>
+<div class="announce">
+  <p><strong>Lou Holtz tribute tees</strong> · Sizes up to 5XL · From $21</p>
 </div>
 
 <!-- ============ HEADER ============ -->
 <header class="site-header">
   <div class="wrap header-inner">
-    <a href="#top" class="logo" aria-label="Home">
-      <img class="logo-mark" src="images/logo-the-lou-shirt.png" width="38" height="38" alt="The Lou Shirt" />
+    <a href="#top" class="logo">
+      <img class="logo-mark" src="images/opt/logo-the-lou-shirt-76.webp" width="38" height="38" alt="The Lou Shirt" />
       <span class="logo-text">Lou Tribute&nbsp;Collection</span>
     </a>
 
-    <nav class="main-nav" id="main-nav">
+    <nav class="main-nav" id="main-nav" aria-label="Main">
       <a href="#shop">Shop All</a>
-      <a href="#saluting-lou">Saluting Lou</a>
+      <a href="#saluting-lou-colors">Saluting Lou</a>
       <a href="#legacy">The Legacy</a>
       <a href="#faq">FAQ</a>
       <a href="#contact">Contact</a>
@@ -45,7 +85,7 @@
 
     <div class="header-actions">
       <a class="btn btn-ghost header-shop-btn" href="#shop">Shop Now</a>
-      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-controls="main-nav" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -58,28 +98,159 @@
   <section class="hero" id="saluting-lou">
     <div class="hero-bg" aria-hidden="true"></div>
     <div class="wrap hero-inner">
-      <div class="hero-copy reveal">
-        <span class="eyebrow">New · Launched This Month</span>
-        <h1>Saluting<br/>Lou</h1>
+      <div class="hero-copy">
+        <h1>
+          <span class="h1-kicker">Lou Holtz tribute shirts</span>
+          <span class="h1-main">Saluting<br/>Lou</span>
+        </h1>
         <p class="hero-lede">
-          The same LOU tribute artwork worn on the Notre Dame Football helmet
-          sticker during the fall 2026 season — now on a shirt built to honor
-          faith, leadership, discipline, and championship excellence.
+          A bold LOU wordmark framed by two hand-drawn “L” salutes. Saluting Lou
+          is a simple, wearable tribute to Coach Lou Holtz for fans who grew up
+          on his teams, his pep talks, and his one-liners.
         </p>
+        <p class="hero-facts">Four colorways · From $21 · Checkout at ndshirt.com</p>
 
         <div class="hero-ctas">
-          <a href="https://ndshirt.com/collections/all" target="_blank" rel="noopener noreferrer" class="btn btn-gold btn-lg">
-            Shop all NDshirt.com Designs
-          </a>
-          <a href="#shop" class="btn btn-outline btn-lg">Explore Full Collection</a>
+          <a href="#saluting-lou-colors" class="btn btn-gold btn-lg">Choose your color</a>
+          <a href="https://ndshirt.com/collections/lou-holtz?utm_source=theloushirt.com&amp;utm_medium=referral&amp;utm_campaign=lou_landing&amp;utm_content=hero_collection" target="_blank" rel="noopener" class="btn btn-outline btn-lg" data-track="hero_collection">All Lou Holtz shirts<span class="sr-only"> (opens ndshirt.com in a new tab)</span></a>
         </div>
 
         <p class="hero-tagline">One name. One legacy. <em>Saluting Lou.</em></p>
       </div>
 
-      <div class="hero-art reveal">
-        <img class="hero-photo" src="images/hero-lou-holtz.jpg" alt="Lou Holtz — a legacy of faith, leadership &amp; victory, illustrated tribute artwork" />
+      <div class="hero-art">
+        <picture>
+          <source type="image/avif" srcset="images/opt/hero-lou-holtz-380.avif 380w, images/opt/hero-lou-holtz-560.avif 560w, images/opt/hero-lou-holtz-760.avif 760w" sizes="(max-width: 528px) calc(100vw - 48px), 480px" />
+          <source type="image/webp" srcset="images/opt/hero-lou-holtz-380.webp 380w, images/opt/hero-lou-holtz-560.webp 560w, images/opt/hero-lou-holtz-760.webp 760w" sizes="(max-width: 528px) calc(100vw - 48px), 480px" />
+          <img class="hero-photo" src="images/opt/hero-lou-holtz-760.webp" width="760" height="760" fetchpriority="high" decoding="async"
+               alt="Illustrated tribute artwork of Coach Lou Holtz in a ball cap, set against a golden dome, a church spire and a stadium, with the words Lou Holtz: A Legacy of Faith, Leadership and Victory" />
+        </picture>
       </div>
+    </div>
+  </section>
+
+  <!-- ============ SHOP ============ -->
+  <section class="shop" id="shop">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow eyebrow-dark">The Collection</span>
+        <h2>Lou Holtz Tribute Shirts</h2>
+        <p>
+          Three designs, six shirts, all made for fans of Coach Holtz. Each shirt is
+          sold through our store at
+          <a class="text-link" href="https://ndshirt.com/collections/lou-holtz?utm_source=theloushirt.com&amp;utm_medium=referral&amp;utm_campaign=lou_landing&amp;utm_content=intro_collection" target="_blank" rel="noopener" data-track="intro_collection">ndshirt.com</a>,
+          where you choose your size and check out.
+        </p>
+        <p class="price-note">Price by size: XS and S $21 · M $24 · L to 2XL $26 · 3XL and up $29</p>
+      </div>
+
+      <div class="product-group" id="saluting-lou-colors">
+        <div class="group-head reveal">
+          <h3>Saluting Lou</h3>
+          <p>The signature design in four colorways: navy with white or gold print, white with navy print, and heather green with gold print.</p>
+        </div>
+
+        <div class="product-grid">
+          <article class="product-card">
+            <div class="product-visual">
+              <img class="tee-photo" src="images/opt/saluting-lou-navy-400.webp" srcset="images/opt/saluting-lou-navy-400.webp 400w, images/opt/saluting-lou-navy-800.webp 800w" sizes="(max-width: 600px) calc(100vw - 48px), 260px" width="400" height="483" loading="lazy" decoding="async"
+                   alt="Navy Saluting Lou t-shirt with a white LOU wordmark between two hands making an L sign" />
+            </div>
+            <div class="product-body">
+              <h4 class="product-name">Saluting Lou</h4>
+              <p class="product-variant">Navy shirt, white print</p>
+              <p class="product-meta">Sizes XS to 5XL</p>
+              <p class="product-price">From $21</p>
+              <a class="product-cta" href="https://ndshirt.com/products/saluting-lou-navy-blue?utm_source=theloushirt.com&amp;utm_medium=referral&amp;utm_campaign=lou_landing&amp;utm_content=card_saluting_navy" target="_blank" rel="noopener" data-track="card_saluting_navy">Choose your size<span class="sr-only">: Saluting Lou, navy shirt with white print (opens ndshirt.com in a new tab)</span></a>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-visual">
+              <img class="tee-photo" src="images/opt/saluting-lou-gold-400.webp" srcset="images/opt/saluting-lou-gold-400.webp 400w, images/opt/saluting-lou-gold-800.webp 800w" sizes="(max-width: 600px) calc(100vw - 48px), 260px" width="400" height="484" loading="lazy" decoding="async"
+                   alt="Navy Saluting Lou t-shirt with a gold LOU wordmark between two hands making an L sign" />
+            </div>
+            <div class="product-body">
+              <h4 class="product-name">Saluting Lou</h4>
+              <p class="product-variant">Gold print on a navy shirt</p>
+              <p class="product-meta">Sizes XS to 5XL</p>
+              <p class="product-price">From $21</p>
+              <a class="product-cta" href="https://ndshirt.com/products/saluting-lou-gold?utm_source=theloushirt.com&amp;utm_medium=referral&amp;utm_campaign=lou_landing&amp;utm_content=card_saluting_gold" target="_blank" rel="noopener" data-track="card_saluting_gold">Choose your size<span class="sr-only">: Saluting Lou, gold print on a navy shirt (opens ndshirt.com in a new tab)</span></a>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-visual">
+              <img class="tee-photo" src="images/opt/saluting-lou-white-400.webp" srcset="images/opt/saluting-lou-white-400.webp 400w, images/opt/saluting-lou-white-800.webp 800w" sizes="(max-width: 600px) calc(100vw - 48px), 260px" width="400" height="485" loading="lazy" decoding="async"
+                   alt="White Saluting Lou t-shirt with a navy LOU wordmark between two hands making an L sign" />
+            </div>
+            <div class="product-body">
+              <h4 class="product-name">Saluting Lou</h4>
+              <p class="product-variant">White shirt, navy print</p>
+              <p class="product-meta">Sizes XS to 5XL</p>
+              <p class="product-price">From $21</p>
+              <a class="product-cta" href="https://ndshirt.com/products/saluting-lou-white?utm_source=theloushirt.com&amp;utm_medium=referral&amp;utm_campaign=lou_landing&amp;utm_content=card_saluting_white" target="_blank" rel="noopener" data-track="card_saluting_white">Choose your size<span class="sr-only">: Saluting Lou, white shirt with navy print (opens ndshirt.com in a new tab)</span></a>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-visual">
+              <img class="tee-photo" src="images/opt/saluting-lou-green-400.webp" srcset="images/opt/saluting-lou-green-400.webp 400w, images/opt/saluting-lou-green-800.webp 800w" sizes="(max-width: 600px) calc(100vw - 48px), 260px" width="400" height="484" loading="lazy" decoding="async"
+                   alt="Heather green Saluting Lou t-shirt with a gold LOU wordmark between two hands making an L sign" />
+            </div>
+            <div class="product-body">
+              <h4 class="product-name">Saluting Lou</h4>
+              <p class="product-variant">Heather green shirt, gold print</p>
+              <p class="product-meta">Sizes XS to 3XL</p>
+              <p class="product-price">From $21</p>
+              <a class="product-cta" href="https://ndshirt.com/products/saluting-lou-green?utm_source=theloushirt.com&amp;utm_medium=referral&amp;utm_campaign=lou_landing&amp;utm_content=card_saluting_green" target="_blank" rel="noopener" data-track="card_saluting_green">Choose your size<span class="sr-only">: Saluting Lou, heather green shirt with gold print (opens ndshirt.com in a new tab)</span></a>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="product-group" id="more-designs">
+        <div class="group-head reveal">
+          <h3>More tribute designs</h3>
+          <p>Two more ways to honor Coach Holtz: one quiet and reflective, one with his portrait front and center.</p>
+        </div>
+
+        <div class="product-grid product-grid-2">
+          <article class="product-card">
+            <div class="product-visual">
+              <img class="tee-photo" src="images/opt/under-the-same-sky-navy-400.webp" srcset="images/opt/under-the-same-sky-navy-400.webp 400w, images/opt/under-the-same-sky-navy-800.webp 800w" sizes="(max-width: 600px) calc(100vw - 48px), 260px" width="400" height="484" loading="lazy" decoding="async"
+                   alt="Navy Under the Same Sky t-shirt showing a gold figure pointing up at a starry sky, with the text Lou 1937 - 2026" />
+            </div>
+            <div class="product-body">
+              <h4 class="product-name">Under the Same Sky</h4>
+              <p class="product-variant">Navy shirt, gold print</p>
+              <p class="product-desc">A starlit sky above a gold figure pointing upward. Understated and reflective.</p>
+              <p class="product-meta">Sizes XS to 5XL</p>
+              <p class="product-price">From $21</p>
+              <a class="product-cta" href="https://ndshirt.com/products/lou-same-sky?utm_source=theloushirt.com&amp;utm_medium=referral&amp;utm_campaign=lou_landing&amp;utm_content=card_same_sky" target="_blank" rel="noopener" data-track="card_same_sky">Choose your size<span class="sr-only">: Under the Same Sky, navy shirt (opens ndshirt.com in a new tab)</span></a>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-visual">
+              <img class="tee-photo" src="images/opt/do-your-job-navy-400.webp" srcset="images/opt/do-your-job-navy-400.webp 400w, images/opt/do-your-job-navy-800.webp 800w" sizes="(max-width: 600px) calc(100vw - 48px), 260px" width="400" height="484" loading="lazy" decoding="async"
+                   alt="Navy Do Your Job t-shirt with a vintage-style portrait of Lou Holtz under bold Do Your Job lettering and a script signature" />
+            </div>
+            <div class="product-body">
+              <h4 class="product-name">Do Your Job</h4>
+              <p class="product-variant">Navy shirt, gold-tone print</p>
+              <p class="product-desc">A vintage-style portrait of Coach Holtz beneath bold block lettering.</p>
+              <p class="product-meta">Sizes XS to 5XL</p>
+              <p class="product-price">From $21</p>
+              <a class="product-cta" href="https://ndshirt.com/products/lou-holtz-do-your-job?utm_source=theloushirt.com&amp;utm_medium=referral&amp;utm_campaign=lou_landing&amp;utm_content=card_do_your_job" target="_blank" rel="noopener" data-track="card_do_your_job">Choose your size<span class="sr-only">: Do Your Job, navy shirt (opens ndshirt.com in a new tab)</span></a>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <p class="shop-more reveal">
+        <a class="btn btn-ghost" href="https://ndshirt.com/collections/lou-holtz?utm_source=theloushirt.com&amp;utm_medium=referral&amp;utm_campaign=lou_landing&amp;utm_content=grid_collection" target="_blank" rel="noopener" data-track="grid_collection">See the full Lou Holtz collection<span class="sr-only"> (opens ndshirt.com in a new tab)</span></a>
+      </p>
     </div>
   </section>
 
@@ -90,19 +261,17 @@
         <span class="eyebrow eyebrow-dark">The Legacy</span>
         <h2>Coach Lou Holtz</h2>
         <p>
-          From 1986–1996, Lou Holtz led Notre Dame Football with a standard of
-          discipline, accountability, and heart that reshaped the program —
-          capped by the 1988 National Championship. Decades later, his voice
-          still echoes through the tunnel, the locker room, and every fan who
-          grew up quoting him.
+          Lou Holtz coached Notre Dame from 1986 through 1996, and his 1988 team
+          won the national championship. He led with a standard of discipline,
+          accountability, and heart, and generations of fans still quote him.
         </p>
         <p>
-          This collection isn't just apparel. It's a way for generations of ND
-          fans, players, alumni, and families to carry his legacy forward —
-          under the same sky, doing their job, leaving no doubt, and saluting
-          the man who built the culture.
+          These shirts are made for the people who carry that standard forward:
+          alumni, students, families, and longtime fans who want something to
+          wear on game day, at a reunion, or any day they want to salute Lou.
+          They also make an easy gift for the fan who still talks about 1988.
         </p>
-        <a href="#shop" class="btn btn-gold">Shop the Tribute Collection</a>
+        <a href="#shop" class="btn btn-gold">See the shirts</a>
       </div>
 
       <blockquote class="legacy-quote reveal">
@@ -110,41 +279,29 @@
           <path d="M0 36V21.6C0 9.6 6.5 1.9 19.4 0l2 5.8C13.8 8 10.1 12.9 9.5 19.4h9.9V36H0Zm25.9 0V21.6c0-12 6.5-19.7 19.4-21.6l1.9 5.8c-7.5 2.2-11.2 7.1-11.9 13.6h10V36H25.9Z" fill="#c9a961"/>
         </svg>
         <p>“I can’t believe that God put us on this earth to be ordinary.”</p>
-        <cite>— Lou Holtz</cite>
+        <cite>Lou Holtz</cite>
       </blockquote>
     </div>
   </section>
 
-  <!-- ============ SHOP GRID ============ -->
-  <section class="shop" id="shop">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <span class="eyebrow eyebrow-dark">The Collection</span>
-        <h2>Multiple Designs, One Tribute</h2>
-        <p>All shirts ship from <a href="https://ndshirt.com/collections/all" target="_blank" rel="noopener noreferrer">ndshirt.com</a>. Sizes XS–5XL.</p>
-      </div>
-
-      <div class="product-grid" id="product-grid"><!-- injected by script.js --></div>
-    </div>
-  </section>
-
-  <!-- ============ QUALITY / TRUST ============ -->
-  <section class="trust">
+  <!-- ============ HOW IT WORKS / TRUST ============ -->
+  <section class="trust" aria-labelledby="trust-heading">
+    <h2 id="trust-heading" class="sr-only">How ordering works</h2>
     <div class="wrap trust-grid">
       <div class="trust-item reveal">
-        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#c9a961" stroke-width="1.8"><path d="M20.8 7.5 12 3 3.2 7.5 12 12l8.8-4.5Z"/><path d="M3.2 7.5V16l8.8 4.5"/><path d="M20.8 7.5V16L12 20.5"/></svg>
-        <h3>Premium Cotton</h3>
-        <p>100% combed &amp; ring-spun cotton, 4.2 oz./yd² — soft, lightweight, and built for comfort.</p>
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#c9a961" stroke-width="1.8" aria-hidden="true"><rect x="3" y="6" width="18" height="14" rx="2"/><path d="M3 10h18"/></svg>
+        <h3>Checkout at ndshirt.com</h3>
+        <p>Every order goes through our Shopify store. Pick your size, see shipping options and costs, and pay at Shopify checkout.</p>
       </div>
       <div class="trust-item reveal">
-        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#c9a961" stroke-width="1.8"><path d="M12 2 3 6v6c0 5 4 8.5 9 10 5-1.5 9-5 9-10V6l-9-4Z"/></svg>
-        <h3>Built to Last</h3>
-        <p>Pre-shrunk fabric, side-seamed construction, and shoulder-to-shoulder taping — game day after game day.</p>
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#c9a961" stroke-width="1.8" aria-hidden="true"><path d="M20.8 7.5 12 3 3.2 7.5 12 12l8.8-4.5Z"/><path d="M3.2 7.5V16l8.8 4.5"/><path d="M20.8 7.5V16L12 20.5"/></svg>
+        <h3>Sizes XS to 5XL</h3>
+        <p>Most shirts run XS to 5XL. Saluting Lou in heather green runs XS to 3XL. Each product page lists exact sizes and prices.</p>
       </div>
       <div class="trust-item reveal">
-        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#c9a961" stroke-width="1.8"><rect x="3" y="6" width="18" height="14" rx="2"/><path d="M3 10h18"/></svg>
-        <h3>Secure Shopify Checkout</h3>
-        <p>Every order is processed through our secure Shopify store — fast shipping, easy returns.</p>
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#c9a961" stroke-width="1.8" aria-hidden="true"><path d="M12 2 3 6v6c0 5 4 8.5 9 10 5-1.5 9-5 9-10V6l-9-4Z"/></svg>
+        <h3>Independent fan designs</h3>
+        <p>Made by fans as a tribute to Coach Holtz. Not affiliated with or endorsed by the University of Notre Dame.</p>
       </div>
     </div>
   </section>
@@ -159,15 +316,23 @@
       <div class="faq-list reveal">
         <details class="faq-item">
           <summary>What sizes are available?</summary>
-          <p>Every design in this collection is available from XS through 5XL. Pick your size on the product page before adding to cart.</p>
+          <p>Saluting Lou in navy, gold on navy, and white, plus Under the Same Sky and Do Your Job, come in XS through 5XL. Saluting Lou in heather green comes in XS through 3XL. You choose your size on the product page at ndshirt.com.</p>
         </details>
         <details class="faq-item">
-          <summary>Where do orders ship from and how are they processed?</summary>
-          <p>All orders are placed and fulfilled through our Shopify store at <a href="https://ndshirt.com/collections/all" target="_blank" rel="noopener noreferrer">ndshirt.com</a>, so you get secure checkout, order tracking, and standard return policies.</p>
+          <summary>How much do the shirts cost?</summary>
+          <p>Price depends on size: XS and S are $21, M is $24, L through 2XL are $26, and 3XL and up are $29 (USD), as listed at ndshirt.com in October 2026. The store always shows the current price before you pay.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Which design should I pick?</summary>
+          <p>Saluting Lou is the bold, easy-to-spot design and comes in four colorways. Under the Same Sky is quieter, with a starlit sky and a small gold figure. Do Your Job puts a vintage-style portrait of Coach Holtz front and center.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Where do I place my order?</summary>
+          <p>All orders are placed through our Shopify store at ndshirt.com. Shipping options and costs appear at checkout. For questions about an order, use the <a class="text-link" href="https://ndshirt.com/pages/contact" target="_blank" rel="noopener">contact form at ndshirt.com</a>.</p>
         </details>
         <details class="faq-item">
           <summary>Is this affiliated with the University of Notre Dame?</summary>
-          <p>This is an independent fan tribute collection celebrating Coach Lou Holtz's legacy. It is not officially licensed or endorsed by the University of Notre Dame.</p>
+          <p>No. This is an independent fan tribute celebrating Coach Lou Holtz's legacy. It is not officially licensed or endorsed by the University of Notre Dame.</p>
         </details>
       </div>
     </div>
@@ -184,32 +349,33 @@
     </div>
     <div class="footer-links">
       <div>
-        <h4>Shop</h4>
-        <a href="#shop">All Designs</a>
-        <a href="https://ndshirt.com/collections/all" target="_blank" rel="noopener noreferrer">Full Catalog</a>
+        <h2 class="footer-heading">Shop</h2>
+        <a href="#shop">All Lou designs</a>
+        <a href="https://ndshirt.com/collections/lou-holtz?utm_source=theloushirt.com&amp;utm_medium=referral&amp;utm_campaign=lou_landing&amp;utm_content=footer_collection" target="_blank" rel="noopener" data-track="footer_collection">Lou Holtz collection</a>
+        <a href="https://ndshirt.com/collections/all?utm_source=theloushirt.com&amp;utm_medium=referral&amp;utm_campaign=lou_landing&amp;utm_content=footer_all" target="_blank" rel="noopener" data-track="footer_all">Everything at ndshirt.com</a>
       </div>
       <div>
-        <h4>Info</h4>
+        <h2 class="footer-heading">Help</h2>
         <a href="#legacy">The Legacy</a>
         <a href="#faq">FAQ</a>
-        <a href="https://ndshirt.com/collections/all" target="_blank" rel="noopener noreferrer">ndshirt.com</a>
+        <a href="https://ndshirt.com/pages/contact" target="_blank" rel="noopener">Contact us</a>
       </div>
     </div>
   </div>
   <div class="wrap footer-bottom">
-    <p>&copy; <span id="year"></span> Lou Tribute Collection. Independent fan tribute — not affiliated with or endorsed by the University of Notre Dame.</p>
+    <p>&copy; <span id="year">2026</span> Lou Tribute Collection. Independent fan tribute, not affiliated with or endorsed by the University of Notre Dame.</p>
   </div>
 </footer>
 
 <!-- sticky mobile buy bar -->
-<div class="sticky-buy" id="sticky-buy">
+<div class="sticky-buy">
   <div>
-    <strong>Saluting Lou</strong>
-    <span>$21.00</span>
+    <strong>Lou Holtz tribute tees</strong>
+    <span>From $21</span>
   </div>
-  <a href="https://ndshirt.com/collections/all" target="_blank" rel="noopener noreferrer" class="btn btn-gold">Shop Now</a>
+  <a href="https://ndshirt.com/collections/lou-holtz?utm_source=theloushirt.com&amp;utm_medium=referral&amp;utm_campaign=lou_landing&amp;utm_content=sticky_collection" target="_blank" rel="noopener" class="btn btn-gold" data-track="sticky_collection">Shop now<span class="sr-only"> (opens ndshirt.com in a new tab)</span></a>
 </div>
 
-<script src="script.js"></script>
+<script src="script.js" defer></script>
 </body>
 </html>
