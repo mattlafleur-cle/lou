@@ -125,3 +125,11 @@ python3 -m http.server 8000
   that this is an independent fan tribute, not affiliated with or endorsed
   by the University of Notre Dame. Keep the wording consistent with the
   store.
+
+## IndexNow
+
+`995ddaddf0af49c3fbf9dcb41421bb08.txt` at the site root is the IndexNow key file. It proves to Bing
+and other IndexNow search engines that this site may notify them when
+pages change. Keep the file name and contents unchanged. To notify after
+publishing an update, open:
+`https://api.indexnow.org/indexnow?url=https://theloushirt.com/&key=995ddaddf0af49c3fbf9dcb41421bb08`
